@@ -1,0 +1,22 @@
+■起動・停止サーバ
+net start mysql
+net stop mysql
+
+■ログイン
+mysql -uroot -p
+→root　パスワード入力
+show databases;
+use springbatch;
+show tables;
+
+■データベース作成
+mysql> create database springbatch; -- Create the new database
+
+■ユーザー作成
+create local user
+mysql> create user 'springuser'@'localhost' identified by 'springuser123'; -- Creates the user
+mysql> grant all on springbatch.* to 'springuser'@'localhost'; -- Gives all the privileges to the new user on the newly created database
+
+create remote user
+mysql> create user 'springuser'@'%' identified by 'springuser123'; -- Creates the user
+mysql> grant all on springbatch.* to 'springuser'@'%'; -- Gives all the privileges to the new user on the newly created database
