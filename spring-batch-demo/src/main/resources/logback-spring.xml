@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+    <property name="encoding" value="UTF-8"/>
+    <property name="logPath" value="logs/"/>
+    <property name="logFormat" value="%date [%thread] %highlight([%-5level]) %cyan(%logger{40}) = %message%n"/>
+    
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${logFormat}</pattern>
+        </encoder>
+    </appender>
+
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${logPath}/batch.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${logPath}batch.%d.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${logFormat}</pattern>
+			<charset>${encoding}</charset>
+		</encoder>
+	</appender>
+	
+	<logger name="jp.co.tokyo_gas.springbatch.config" level="DEBUG" />
+	
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+</configuration>
