@@ -1,0 +1,52 @@
+drop table springbatch.cat;
+create table springbatch.cat(
+    id INT(11) not null auto_increment primary key,
+    catname VARCHAR(20),
+    catage int(2),
+    cataddress VARCHAR(20),
+    comment01 VARCHAR(50),
+    comment02 VARCHAR(50),
+    comment03 VARCHAR(50),
+    comment04 VARCHAR(50),
+    comment05 VARCHAR(50),
+    comment06 VARCHAR(50),
+    comment07 VARCHAR(50),
+    comment08 VARCHAR(50),
+    comment09 VARCHAR(50),
+    comment10 VARCHAR(50),
+    comment11 VARCHAR(50),
+    comment12 VARCHAR(50),
+    comment13 VARCHAR(50),
+    comment14 VARCHAR(50),
+    comment15 VARCHAR(50),
+    comment16 VARCHAR(50),
+    comment17 VARCHAR(50),
+    comment18 VARCHAR(50),
+    comment19 VARCHAR(50),
+    comment20 VARCHAR(50)
+);
+
+DELETE FROM `springbatch`.`batch_step_execution_context`;
+DELETE FROM `springbatch`.`batch_step_execution_seq`;
+DELETE FROM `springbatch`.`batch_step_execution`;
+
+DELETE FROM `springbatch`.`batch_job_execution_context`;
+DELETE FROM `springbatch`.`batch_job_execution_params`;
+DELETE FROM `springbatch`.`batch_job_execution_seq`;
+
+DELETE FROM `springbatch`.`batch_job_seq`;
+DELETE FROM `springbatch`.`batch_job_execution`;
+DELETE FROM `springbatch`.`batch_job_instance`;
+
+
+DELETE FROM `springbatch`.`batch_step_execution_context`;
+DELETE FROM `springbatch`.`batch_step_execution_seq`;
+DELETE FROM `springbatch`.`batch_step_execution`;
+
+DELETE FROM `springbatch`.`batch_job_execution_context`;
+DELETE FROM `springbatch`.`batch_job_execution_params`;
+DELETE FROM `springbatch`.`batch_job_execution_seq`;
+
+DELETE FROM `springbatch`.`batch_job_seq`;
+DELETE FROM `springbatch`.`batch_job_execution`;
+DELETE FROM `springbatch`.`batch_job_instance`;

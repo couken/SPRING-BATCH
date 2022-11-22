@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.tokyo_gas.batch.entity.Cat">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap id="catMap" type="jp.co.tokyo_gas.batch.entity.Cat" >
+
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="catname" property="catname" jdbcType="VARCHAR" />
+        <result column="catage" property="catage" jdbcType="VARCHAR" />
+        <result column="cataddress" property="cataddress" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+
+    <insert id="insertCat" parameterType="jp.co.tokyo_gas.batch.entity.Cat">
+           insert into cat(id, catname, catage, cataddress, comment01, comment02, comment03, comment04, comment05, comment06, comment07, comment08, comment09, comment10, comment11, comment12, comment13, comment14, comment15, comment16, comment17, comment18, comment19, comment20)
+               values(#{id},#{catname}, #{catage}, #{cataddress}, #{comment01}, #{comment02}, #{comment03}, #{comment04}, #{comment05}, #{comment06}, #{comment07}, #{comment08}, #{comment09}, #{comment10}, #{comment11}, #{comment12}, #{comment13}, #{comment14}, #{comment15}, #{comment16}, #{comment17}, #{comment18}, #{comment19}, #{comment20})
+   </insert>
+
+    <select id="selectList"  resultMap="catMap">
+        select id,catname,catage,cataddress from cat
+    </select>
+
+    <select id="selectPageList"  resultMap="catMap" parameterType="java.util.Map">
+        select id,catname,catage,cataddress from cat limit #{_skiprows},#{_pagesize}
+    </select>
+
+    <select id="selectPartitionList"  resultMap="catMap" parameterType="java.util.Map">
+        select id,catname,catage,cataddress from cat
+        where 1=1  and
+        <if test="fromId != null">
+            id <![CDATA[ >= ]]> #{fromId}
+         </if>
+         <if test="toId != null">
+             and id <![CDATA[ <= ]]>  #{toId}
+         </if>
+    </select>
+
+</mapper>

@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ItemReaderApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ItemReaderApplication.class, args);
+		SpringApplication.run(jp.co.tokyo_gas.batch.json.reader.JsonReaderApplication.class, args);
 	}
 
 }
